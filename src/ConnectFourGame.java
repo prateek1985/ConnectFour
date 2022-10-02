@@ -22,20 +22,19 @@ public class ConnectFourGame {
 
 	public boolean move(int chosenColumn) {
 		int rowCount = board.getRowCount();
-		do {
 
-			for (int i = rowCount - 1; i >= 0; i--) {
-				if (board.getValue(i, chosenColumn) == '_') {
-					board.setValue(i, chosenColumn, currentTurn.getColor().getLabel());
-					lastFilledRow = i;
-					lastFilledColumn = chosenColumn;
-					return true;
-				}
+		for (int i = rowCount - 1; i >= 0; i--) {
+			if (board.getValue(i, chosenColumn) == '_') {
+				board.setValue(i, chosenColumn, currentTurn.getColor().getLabel());
+				lastFilledRow = i;
+				lastFilledColumn = chosenColumn;
+				return true;
 			}
+		}
 
-			System.out.println(
-					String.format("Column %s is full, please choose different column", String.valueOf(chosenColumn)));
-		} while (true);
+		System.out.println(
+				String.format("Column %s is full, please choose different column", String.valueOf(chosenColumn)));
+		return false;
 	}
 
 	public boolean checkIfPlayerWon() {
@@ -43,15 +42,13 @@ public class ConnectFourGame {
 		String vertical = board.getVertical(lastFilledRow, lastFilledColumn);
 		String diagonal = board.getDiagonal(lastFilledRow, lastFilledColumn);
 		String antiDiagonal = board.getAntiDiagonal(lastFilledRow, lastFilledColumn);
-		char color  = currentTurn.getColor().getLabel();
+		char color = currentTurn.getColor().getLabel();
 		String connectFourString = String.format("%c%c%c%c", color, color, color, color);
-		
-		return contains(horizontal, connectFourString) || contains(vertical, connectFourString) 
+
+		return contains(horizontal, connectFourString) || contains(vertical, connectFourString)
 				|| contains(vertical, connectFourString) || contains(antiDiagonal, connectFourString);
 	}
-	
-	
-	
+
 	private boolean contains(String str, String match) {
 		return str.contains(match);
 	}

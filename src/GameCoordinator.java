@@ -27,7 +27,7 @@ public class GameCoordinator {
 				}
 				game.setCurrentTurn(currentPlayerTurn);
 				System.out.println(
-						String.format("Player %s turn, please choose column", game.getCurrentTurn().getColor().name()));
+						String.format("Player %s turn, please choose column", game.getCurrentTurn().getColor()));
 				int chosenColumn = chooseColumnForTurn(br, column);
 				if (!game.move(chosenColumn)) {
 					i--;
@@ -35,7 +35,7 @@ public class GameCoordinator {
 				}
 				if (game.checkIfPlayerWon()) {
 					game.setStatus(GameStatus.WIN);
-					System.out.println(String.format("Player %s wins", game.getCurrentTurn().getColor().name()));
+					System.out.println(String.format("Player %s wins", game.getCurrentTurn().getColor()));
 					return;
 				}
 				playerNumber++;
@@ -65,7 +65,7 @@ public class GameCoordinator {
 					System.out.println("Choose column between 1 to ".concat(String.valueOf(maxColumn)));
 					continue;
 				}
-				return chosenColumn;
+				return chosenColumn - 1;
 			} catch (NumberFormatException e) {
 				System.out.println("Chosen column should be valid integer");
 			} catch (IOException e) {
