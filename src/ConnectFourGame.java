@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 import enums.GameStatus;
 
 public class ConnectFourGame {
