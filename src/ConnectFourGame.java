@@ -33,7 +33,7 @@ public class ConnectFourGame {
 		}
 
 		System.out.println(
-				String.format("Column %s is full, please choose different column", String.valueOf(chosenColumn)));
+				String.format("Column %s is full, please choose different column", String.valueOf(chosenColumn + 1)));
 		return false;
 	}
 
@@ -46,7 +46,7 @@ public class ConnectFourGame {
 		String connectFourString = String.format("%c%c%c%c", color, color, color, color);
 
 		return contains(horizontal, connectFourString) || contains(vertical, connectFourString)
-				|| contains(vertical, connectFourString) || contains(antiDiagonal, connectFourString);
+				|| contains(diagonal, connectFourString) || contains(antiDiagonal, connectFourString);
 	}
 
 	private boolean contains(String str, String match) {

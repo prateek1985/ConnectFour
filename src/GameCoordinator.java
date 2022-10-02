@@ -33,13 +33,13 @@ public class GameCoordinator {
 					i--;
 					continue;
 				}
+				System.out.println(game.getBoard().print());
 				if (game.checkIfPlayerWon()) {
 					game.setStatus(GameStatus.WIN);
 					System.out.println(String.format("Player %s wins", game.getCurrentTurn().getColor()));
 					return;
 				}
 				playerNumber++;
-				System.out.println(game.getBoard().print());
 			}
 			game.setStatus(GameStatus.DRAW);
 			System.out.println("Its a DRAW");
@@ -54,6 +54,7 @@ public class GameCoordinator {
 		Player player2 = new Player(Color.GREEN);
 		ConnectFourGame game = new ConnectFourGame(board, player1, player2);
 		game.setStatus(GameStatus.ACTIVE);
+		System.out.println("New Game Connect Four Started!");
 		return game;
 	}
 
