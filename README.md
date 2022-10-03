@@ -22,6 +22,9 @@ Java 8 or above
 ```
 - Add Junit tests with high code coverage
 
+- Currently only game is meant for 2 players based on requirements but in future if it becomes multiplayer then I would like 
+  take number of players as input in begining and create players array and give turns in Game accordindly
+
 - Preferrably use Spring boot framework & gradle  if we want to deploy this as an app on servers as Game grows bigger
    in future for easy dependency management and framework's other benefits  
   
