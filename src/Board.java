@@ -9,6 +9,7 @@ public class Board {
 		resetBoard();
 	}
 	
+	
 	public void resetBoard() {
 		for(int i=0;i<grid.length;i++) {
 			for(int j=0;j<grid[i].length;j++) {
@@ -16,6 +17,12 @@ public class Board {
 			}
 		}
 	}
+	
+	/**
+	 * print the board, for player to know current state
+	 *
+	 * @return String 	representation of current state of board
+	 */
 	
 	public String print() {
 		StringBuilder displayBoard = new StringBuilder();
@@ -39,7 +46,13 @@ public class Board {
 	public void setValue(int i, int j, char label) {
 		this.grid[i][j] = label;
 	}
-
+	
+	
+	/**
+	 * Gives horizontal string representation of row of last chosen coordinate
+	 *
+	 * @return String
+	 */
 	public String getHorizontal(int lastFilledRow, int lastFilledColumn) {
 		StringBuilder horizontal = new StringBuilder();
 		for(int j=0;j<grid[lastFilledRow].length;j++) {
@@ -48,6 +61,11 @@ public class Board {
 		return horizontal.toString();
 	}
 
+	/**
+	 * Gives vertical string representation of column of last chosen coordinate
+	 *
+	 * @return String
+	 */
 	public String getVertical(int lastFilledRow, int lastFilledColumn) {
 		StringBuilder vertical = new StringBuilder();
 		for(int i=0;i<grid.length;i++) {
@@ -56,6 +74,11 @@ public class Board {
 		return vertical.toString();
 	}
 
+	/**
+	 * Gives diagonal string representation of last chosen coordinate
+	 *
+	 * @return String
+	 */
 	public String getDiagonal(int row, int column) {
 		// get to the boundary of grid to begin
 		while(row > 0 && column > 0) {
@@ -72,6 +95,11 @@ public class Board {
 		return diagonal.toString();
 	}
 
+	/**
+	 * Gives anti-diagonal string representation of last chosen coordinate
+	 *
+	 * @return String
+	 */
 	public String getAntiDiagonal(int row, int column) {
 		// get to the boundary of grid to begin
 		while(row > 0 && column < grid[row].length-1) {

@@ -34,6 +34,12 @@ public class ConnectFourGame {
 				String.format("Column %s is full, please choose different column", String.valueOf(chosenColumn + 1)));
 		return false;
 	}
+	
+	/**
+	 * check for all possible ways if player has won 
+	 *
+	 * @return boolean 	returns true if player is won
+	 */
 
 	public boolean checkIfPlayerWon() {
 		String horizontal = board.getHorizontal(lastFilledRow, lastFilledColumn);

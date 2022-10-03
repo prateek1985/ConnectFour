@@ -48,6 +48,14 @@ public class GameCoordinator {
 		}
 	}
 
+	/**
+	 * Initializes a new game
+	 *
+	 * @param row 				number of rows in board
+	 * @param column 			number of columns in board
+	 * @return ConnectFourGame 	Game object	
+	 */
+
 	private static ConnectFourGame initializeGame(int row, int column) {
 		Board board = new Board(row, column);
 		Player player1 = new Player(Color.RED);
@@ -57,6 +65,15 @@ public class GameCoordinator {
 		System.out.println("New Game Connect Four Started!");
 		return game;
 	}
+	
+	/**
+	 * For player to choose a column
+	 *
+	 * @param br 			BufferedReader for input
+	 * @param maxColumn 	max number of columns in board as per size
+	 * @return integer 		chosen column by player
+	 */
+
 
 	private static int chooseColumnForTurn(BufferedReader br, int maxColumn) {
 		do {
